@@ -1,8 +1,8 @@
-package com.example.chatgptjokes.service;
+package com.example.gptStoryteller.service;
 
-import com.example.chatgptjokes.dtos.ChatCompletionRequest;
-import com.example.chatgptjokes.dtos.ChatCompletionResponse;
-import com.example.chatgptjokes.dtos.MyResponse;
+import com.example.gptStoryteller.dtos.ChatCompletionRequest;
+import com.example.gptStoryteller.dtos.ChatCompletionResponse;
+import com.example.gptStoryteller.dtos.MyResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

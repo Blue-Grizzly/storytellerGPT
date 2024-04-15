@@ -1,7 +1,8 @@
-package com.example.chatgptjokes.api;
+package com.example.gptStoryteller.api;
 
-import com.example.chatgptjokes.dtos.MyResponse;
-import com.example.chatgptjokes.service.OpenAiService;
+import com.example.gptStoryteller.dtos.MyResponse;
+import com.example.gptStoryteller.dtos.SessionSettings;
+import com.example.gptStoryteller.service.OpenAiService;
 import io.github.bucket4j.Bandwidth;
 import io.github.bucket4j.Bucket;
 import io.github.bucket4j.Refill;
@@ -19,9 +20,9 @@ import java.util.concurrent.ConcurrentHashMap;
  * This class handles fetching a joke via the ChatGPT API, but is IP-rate limited.
  */
 @RestController
-@RequestMapping("/api/v1/jokelimited")
+@RequestMapping("/api/v1/story")
 @CrossOrigin(origins = "*")
-public class JokeLimitedController {
+public class StoryLimitedController {
 
   @Value("${app.bucket_capacity}")
   private int BUCKET_CAPACITY;
@@ -40,7 +41,7 @@ public class JokeLimitedController {
    * The controller called from the browser client.
    * @param service
    */
-  public JokeLimitedController(OpenAiService service) {
+  public StoryLimitedController(OpenAiService service) {
     this.service=service;
   }
 
@@ -53,23 +54,13 @@ public class JokeLimitedController {
     return Bucket.builder().addLimit(limit).build();
   }
 
-  /**
-   * Returns an existing bucket via ket or creates a new one.
-   * @param key the IP address
-   * @return bucket
-   */
   private Bucket getBucket(String key) {
     return buckets.computeIfAbsent(key, k -> createNewBucket());
   }
 
-  /**
-   * Handles the request from the browser.
-   * @param about about contains the input that ChatGPT uses to make a joke about.
-   * @param request the current HTTP request used
-   * @return the response from ChatGPT.
-   */
-  @GetMapping()
-  public MyResponse getJokeLimited(@RequestParam String about, HttpServletRequest request) {
+
+  @PostMapping()
+  public MyResponse getStoryLimited(@RequestBody SessionSettings session, HttpServletRequest request) {
 
     // Get the IP of the client.
     String ip = request.getRemoteAddr();
@@ -80,7 +71,9 @@ public class JokeLimitedController {
       // If not, tell the client "Too many requests".
       throw new ResponseStatusException(HttpStatus.TOO_MANY_REQUESTS, "Too many requests, try again later");
     }
-    // Otherwise request a joke and return the response.
-    return service.makeRequest(about, JokeController.SYSTEM_MESSAGE);
+    // Otherwise request to progress the story.
+
+      String system = String.format("%s. The story is set in %s. My character is %s", StoryController.SYSTEM_MESSAGE,session.getSetting(), session.getCharacter());
+      return service.makeRequest(session.getAction(),system);
   }
 }
