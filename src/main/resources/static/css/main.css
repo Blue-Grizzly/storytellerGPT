@@ -7,14 +7,24 @@ body{
 }
 
 .chat-response {
+    background-color: #a3a3a3;
     font-size: large;
     font-style: italic;
+    border-color: #a3a3a3;
 }
 
 .chat-action {
+    background-color: #8b8b8b;
+    border-color: #8b8b8b;
     font-size: large;
     font-style: bold;
-    color: rgb(70, 70, 70);
+}
+
+input[type="text"] {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #bebebe;
+    border-style: none;
 }
 
 #instructions, #instructions li{

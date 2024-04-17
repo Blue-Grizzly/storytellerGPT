@@ -59,7 +59,7 @@ public class OpenAiService {
   @Value("${app.top_p}")
   public double TOP_P;
 
-  private WebClient client;
+  private final WebClient client;
 
   public OpenAiService() {
     this.client = WebClient.create();

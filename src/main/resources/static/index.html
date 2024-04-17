@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Open AI Demo</title>
+    <title>Choose Your Own Adventure</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
@@ -19,12 +19,13 @@
 <div class="container mt-5">
     <h2>StorytellerGPT</h2>
 
-    <p>This Open AI project uses the chatgpt API to generate an interactive choose your own adventure.</p>
+    <p>This Open AI project uses the chatgpt API to generate an interactive story in a setting of your choice.</p>
     <br>
     <p class="fw-bold">Before you start:</p>
     <ul class="list-group list-group-flush" id="instructions">
         <li class="list-group-item">To get started you first have to provide a setting for your story to take place.</li>
         <li class="list-group-item">You also have to tell it what you want your character to be.</li>
+        <li class="list-group-item">You will not be able to change these after starting without starting a new story</li>
         <li class="list-group-item">For the best experince write your actions in first person. </li>
         <li class="list-group-item">Be short and concise.</li>
     </ul>
@@ -40,7 +41,7 @@
                     </div>
                     <div class="row mt-3">
                         <div class="column text-end">
-                            <button class="btn btn-primary" id="btn-setting">Set setting</button>
+                            <button class="btn btn-primary" id="btn-setting">Set</button>
                         </div>
                     </div>
                 </form>
@@ -58,7 +59,7 @@
                 </div>
                 <div class="row mt-3">
                     <div class="column text-end">
-                        <button class="btn btn-primary" id="btn-character">Set Character</button>
+                        <button class="btn btn-primary" id="btn-character">Set</button>
                     </div>
                 </div>
             </form>
@@ -72,17 +73,18 @@
             <ul class="list-group list-group-flush overflow-auto" id="chat-history" style="max-height: 400px;">
             </ul>
 
-            <div id="spinner1" class="spinner-border text-success" role="status"
-            style="margin-left:1em;border-radius: 50%;display:none;">
-            <span class="visually-hidden">Loading...</span>
-            </div>
-
             <form id="form-story" class="container">
                 <div class="row">
                     <input type="text" id="action" placeholder="I drink.">
                 </div>
                 <div class="row mt-3">
-                    <div class="column text-end">
+                    <div class="col">
+                        <div id="spinner1" class="spinner-border text-success" role="status"
+                        style="margin-left:1em;border-radius: 50%;display:none;">
+                        <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                    <div class="col text-end">
                         <button class="btn btn-primary" id="btn-action">Submit</button>
                     </div>
                 </div>
