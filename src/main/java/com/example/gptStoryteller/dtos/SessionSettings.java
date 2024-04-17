@@ -11,5 +11,6 @@ public class SessionSettings {
     private String character;
     private String setting;
     private String action;
+    private String history;
 
 }

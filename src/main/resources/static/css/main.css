@@ -1,9 +1,35 @@
-.result {
+body{
+    font-family:'Courier New', Courier, monospace;
+    background-color:#292e32;
+    margin: 0;
+    padding: 0;
+    color:whitesmoke;
+}
+
+.chat-response {
     font-size: large;
     font-style: italic;
-    color: darkblue;
+}
+
+.chat-action {
+    font-size: large;
+    font-style: bold;
+    color: rgb(70, 70, 70);
+}
+
+#instructions, #instructions li{
+    font-style: italic;
+    border-radius: 10px;
+    background-color: #37393d;
+    color: whitesmoke;
+    border-color: #37393d;
 }
 
 label {
     font-weight: bold;
+}
+
+.card {
+    background-color: #37393d;
+    color: whitesmoke;
 }
