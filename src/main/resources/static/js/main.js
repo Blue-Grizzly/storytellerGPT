@@ -10,7 +10,8 @@ const data = {
 document.getElementById('form-setting').addEventListener('submit', setSetting);
 document.getElementById('form-character').addEventListener('submit', setCharacter);
 document.getElementById('form-story').addEventListener('submit', getStory);
-// document.getElementById('form-answer').addEventListener('submit', getInfo);
+document.getElementById('btn-reset').addEventListener('click', resetStory);
+document.getElementById('btn-lightmode').addEventListener('click', toggleLightMode);
 
 function setSetting(event) {
   event.preventDefault();
@@ -78,11 +79,11 @@ async function getStory(event) {
     chat.insertAdjacentHTML('beforeend', `<li class="list-group-item chat-response"></li>`);
     typeWriter(res.answer, chat.lastChild);
     data.history = data.history + res.answer;
+    event.target.action.value = "";
   } catch (error) {
     console.log(error);
   } finally {
     spinner.style.display = "none";
-    event.target.action.value = "";
   }
 }
 
@@ -93,6 +94,17 @@ async function handleHttpErrors(res) {
     throw new Error(msg)
   }
   return res.json()
+}
+
+function resetStory(){
+  document.getElementById('card-setting').style.display = 'block';
+  document.getElementById('card-character').style.display = 'none';
+  document.getElementById('card-story').style.display = 'none';
+  document.getElementById('chat-history').innerHTML = "";
+  data.setting = "Faerûn";
+  data.character = "A drunk dwarf";
+  data.history = "";
+  data.action = "";
 }
 
 function typeWriter(text, element) {
@@ -106,4 +118,11 @@ function typeWriter(text, element) {
     }
   }
   type();
+}
+
+function toggleLightMode(){
+  document.querySelectorAll("*").forEach((e)=>e.classList.toggle('light-mode'));
+  const btn = document.getElementById('btn-lightmode');
+  btn.innerHTML = btn.innerHTML === "Set Dark Mode" ? "Set Light Mode" : "Set Dark Mode";
+  
 }

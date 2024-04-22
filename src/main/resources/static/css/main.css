@@ -43,3 +43,57 @@ label {
     background-color: #37393d;
     color: whitesmoke;
 }
+
+
+::placeholder {
+    color: rgb(0, 0, 0);
+    opacity: 0.8; /* Firefox */
+  }
+  
+  ::-ms-input-placeholder { /* Edge 12 -18 */
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+
+  body.light-mode{
+    font-family:'Courier New', Courier, monospace;
+    background-color:#ffffff;
+    margin: 0;
+    padding: 0;
+    color:rgb(0, 0, 0);
+}
+
+.chat-response.light-mode {
+    background-color: #ebebeb;
+    font-size: large;
+    font-style: italic;
+    border-color: #ebebeb;
+}
+
+.chat-action.light-mode {
+    background-color: #a8a8a8;
+    border-color: #a8a8a8;
+    font-size: large;
+    font-style: bold;
+}
+
+input[type="text"].light-mode {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #ffffff;
+    border-style: none;
+}
+
+#instructions.light-mode, #instructions li.light-mode{
+    font-style: italic;
+    border-radius: 10px;
+    background-color: #b1d4f5;
+    color: rgb(0, 0, 0);
+    border-color: #b1d4f5;
+}
+
+    
+.card.light-mode {
+    background-color: #b1d4f5;
+    color: rgb(0, 0, 0);
+}

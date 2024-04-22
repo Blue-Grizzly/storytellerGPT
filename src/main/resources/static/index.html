@@ -55,7 +55,7 @@
             <form id="form-character" class="container">
                 <div class="row">
                     <label for="character">My character is:</label> <input type="text" id="character"
-                                                             placeholder="A drunk dwarf.">
+                                                             placeholder="A drunk dwarf." >
                 </div>
                 <div class="row mt-3">
                     <div class="column text-end">
@@ -63,75 +63,43 @@
                     </div>
                 </div>
             </form>
-    </div>
-</div>
-
-
-    <div class="card m-3" id="card-story" style="display: none">
-        <div class="card-body">
-            <h5 class="card-title">Choose Your Own Adventure</h5>
-            <ul class="list-group list-group-flush overflow-auto" id="chat-history" style="max-height: 400px;">
-            </ul>
-
-            <form id="form-story" class="container">
-                <div class="row">
-                    <input type="text" id="action" placeholder="I drink.">
-                </div>
-                <div class="row mt-3">
-                    <div class="col">
-                        <div id="spinner1" class="spinner-border text-success" role="status"
-                        style="margin-left:1em;border-radius: 50%;display:none;">
-                        <span class="visually-hidden">Loading...</span>
-                        </div>
-                    </div>
-                    <div class="col text-end">
-                        <button class="btn btn-primary" id="btn-action">Submit</button>
-                    </div>
-                </div>
-            </form>
         </div>
     </div>
-</div>
 
 
-    <!-- <div class="card m-3">
-        <div class="card-body">
-            <h5 class="card-title">Demonstrates how to feed own info into the API-request</h5>
+        <div class="card m-3" id="card-story" style="display: none">
+            <div class="card-body">
+                <h5 class="card-title">Choose Your Own Adventure</h5>
+                <ul class="list-group list-group-flush overflow-auto" id="chat-history" style="max-height: 400px;">
+                </ul>
 
-            <form id="form-answer">
-                <div class="row">
-                <div class="column mb-3">
-
-                    <button type="button" class="btn btn-dark btn-sm" data-bs-toggle="modal"
-                            data-bs-target="#owninfoModal">
-                        How to use this example!
-                    </button>
-                </div>
-
-</div>
-
-                <div class="container">
-
+                <form id="form-story" class="container">
                     <div class="row">
-      <label for="the-question">Questions </label><textarea cols="100" rows="3" id="the-question"
-                placeholder="Enter a question related to this ChatGPT example"></textarea>
+                        <input type="text" id="action" placeholder="I drink.">
                     </div>
+                    <div class="row mt-3">
+                        <div class="col">
+                            <div id="spinner1" class="spinner-grow" role="status"
+                            style="display:none;background-color: transparent; height: 3rem; width: 3rem;">
+                            <span class="visually-hidden">Loading...</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-signpost-split-fill" viewBox="0 0 16 16">
+                                <path d="M7 16h2V6h5a1 1 0 0 0 .8-.4l.975-1.3a.5.5 0 0 0 0-.6L14.8 2.4A1 1 0 0 0 14 2H9v-.586a1 1 0 0 0-2 0V7H2a1 1 0 0 0-.8.4L.225 8.7a.5.5 0 0 0 0 .6l.975 1.3a1 1 0 0 0 .8.4h5z"/>
+                              </svg>
+                            </div>
+                        </div>
 
-                    <div class="row">
-                        <div class="column text-end mt-3">
-                            <button type="submit" class="btn btn-primary" id="btn-get-answer">Get answer</button>
+                        <div class="col text-end">
+                            <button class="btn btn-primary" id="btn-action">Submit</button>
                         </div>
                     </div>
-                    <div id="spinner3" class="spinner-border-lg spinner-border text-success" role="status"
-                         style="margin:1em;border-radius: 50%;display:none;width: 3rem; height: 3rem;">
-                        <span class=" visually-hidden">Loading...</span>
-                    </div>
-
-                </div>
-            </form>
-
+                </form>
+            </div>
         </div>
-    </div> -->
+    </div>
+    <button class="btn btn-danger" id="btn-reset">New Adventure</button>
+    <button class="btn btn-secondary" id="btn-lightmode">
+            Set Light Mode
+    </button>
 </div>
 </body>
 
